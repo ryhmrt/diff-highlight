@@ -14,7 +14,9 @@ my @removed;
 my @added;
 my $in_hunk;
 
+binmode(STDOUT, ':utf8');
 while (<>) {
+	utf8::decode($_);
 	if (!$in_hunk) {
 		print;
 		$in_hunk = /^$COLOR*\@/;
